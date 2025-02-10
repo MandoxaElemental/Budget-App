@@ -8,7 +8,6 @@ let BudgetInput = document.getElementById('budgetInput');
 let UpdateChangeBtn = document.getElementById('updateChangeBtn');
 let UpdateCancelBtn = document.getElementById('updateCancelBtn');
 let UpdateBox = document.getElementById('UpdateBox');
-let ManageChangeBtn = document.getElementById('manageChangeBtn');
 let ManageCancelBtn = document.getElementById('manageCancelBtn');
 let ManageBox = document.getElementById('ManageBox');
 let AddChangeBtn = document.getElementById('addChangeBtn');
@@ -41,13 +40,13 @@ UpdateChangeBtn.addEventListener("click", async () => {
     let ConvertedNum = Number(BudgetInput.value);
     if (ConvertedNum >= 0) {
         MyBudget = ConvertedNum;
-        document.getElementById('theBudget').innerText = `${MyBudget}`
-        document.getElementById('currentBudget').innerText = `${MyBudget}`
+        document.getElementById('theBudget').innerText = `$${MyBudget}`
+        document.getElementById('currentBudget').innerText = `$${MyBudget}`
         saveBudget(ConvertedNum);
         calculator()
         
     } else {
-        console.log('error')
+        alert('ERROR; Please Enter A Valid Number')
     }
 });
 
@@ -59,7 +58,7 @@ AddChangeBtn.addEventListener("click", async () => {
         saveToLocalStorageByExpenses(NewArr);
         calculator()
     } else {
-        alert('ERROR')
+        alert('ERROR: Make Sure Your Entries Are Valid')
     }
 });
 
@@ -72,8 +71,8 @@ function newBudget() {
     let aBudget = getBudget();
     aBudget.map(budget => {
     MyBudget = budget; 
-    document.getElementById('theBudget').innerText = `${MyBudget}`
-    document.getElementById('currentBudget').innerText = `${MyBudget}`
+    document.getElementById('theBudget').innerText = `$${MyBudget}`
+    document.getElementById('currentBudget').innerText = `$${MyBudget}`
     });
 };
 
@@ -84,9 +83,11 @@ function createElements() {
 	ExpensesList.innerHTML= "";
     myExpenses.map(arrayItems => {
 
+        let ExpenseItem = document.createElement('div')
+        ExpenseItem.className = "expenseItem";
         let p = document.createElement('p');
-        p.className = "m-2";
-        p.textContent = arrayItems;
+        p.className = "expenseListItem";
+        p.textContent = arrayItems.join(" - $");
 
         let deletebtn = document.createElement('button');
         deletebtn.type = 'button';
@@ -96,12 +97,13 @@ function createElements() {
         deletebtn.addEventListener('click', function () {
             removeFromLocalStorage(arrayItems);
             calculator()
-            p.remove();
+            ExpenseItem.remove();
         });
 
-        p.appendChild(deletebtn);
+        ExpenseItem.appendChild(p);
+        ExpenseItem.appendChild(deletebtn);
 
-        ExpensesList.appendChild(p);
+        ExpensesList.appendChild(ExpenseItem);
     });
 };
 

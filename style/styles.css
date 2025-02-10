@@ -17,7 +17,7 @@ body{
     background-color: black;
     text-align: center;
     padding: 30px;
-    border: solid red;
+    border: solid rgb(255, 196, 0);
     border-width: thick;
 }
 
@@ -26,10 +26,14 @@ body{
     background-color: black;
     text-align: center;
     width: 300px;
+    border: solid rgb(255, 196, 0);
+    border-width: thick;
 }
 
 input{
     padding: 10px;
+    background-color: rgb(255, 196, 0);
+    text-align: center;
 }
 
 button{
@@ -60,9 +64,12 @@ button:hover{
 }
 
 .topBar{
-    background-color: red;
+    background-color: rgb(255, 196, 0);
     height: 40px;
-    border-radius: 20px 20px 0 0 ;
+    border-radius: 15px 15px 0 0 ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .smallBtn{
@@ -93,4 +100,15 @@ button:hover{
 
 .hidden{
     display: none;
+}
+
+.expenseItem{
+    border-radius: 20px;
+    border: solid rgb(255, 196, 0);
+    border-width: medium;
+    margin: 5px;
+    padding: 5px;
+}
+.expenseListItem{
+    font-size: 20px;
 }
