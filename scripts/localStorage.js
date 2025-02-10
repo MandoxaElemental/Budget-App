@@ -15,13 +15,12 @@ function getBudget(){
     return JSON.parse(localBudgetData);
 }
 
-function saveToLocalStorageByExpenses(expenses) {
+function saveToLocalStorageByExpenses(expenses, cost) {
     let expensesArr = getLocalStorage();
 
     if (!expensesArr.includes(expenses)) {
         expensesArr.push(expenses);
     }
-    
 
     localStorage.setItem('Expenses', JSON.stringify(expensesArr));
 }

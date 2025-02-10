@@ -14,6 +14,9 @@ let ManageBox = document.getElementById('ManageBox');
 let AddChangeBtn = document.getElementById('addChangeBtn');
 let AddCancelBtn = document.getElementById('addCancelBtn');
 let AddBox = document.getElementById('AddBox');
+let ExpenseName = document.getElementById('expenseName');
+let ExpenseCost = document.getElementById('expenseCost');
+let ExpensesList = document.getElementById('expensesList');
 
 UpdateBtn.addEventListener("click", async () => {
     UpdateBox.className = "mainBox absolute fadeIn"
@@ -38,38 +41,35 @@ UpdateChangeBtn.addEventListener("click", async () => {
     let ConvertedNum = Number(BudgetInput.value);
     if (ConvertedNum >= 0) {
         MyBudget = ConvertedNum;
-        console.log('Correct')
-        console.log(MyBudget)
         document.getElementById('theBudget').innerText = `${MyBudget}`
         document.getElementById('currentBudget').innerText = `${MyBudget}`
-        saveBudget(ConvertedNum); 
+        saveBudget(ConvertedNum);
+        calculator()
         
     } else {
         console.log('error')
     }
 });
 
-ManageChangeBtn.addEventListener("click", async () => {
-    let ConvertedNum = Number(BudgetInput.value);
-    if (ConvertedNum >= 0) {
-        MyBudget = ConvertedNum;
-        console.log('Correct')
-        console.log(MyBudget)
-        document.getElementById('theBudget').innerText = `${MyBudget}`
-        document.getElementById('currentBudget').innerText = `${MyBudget}`
-        saveBudget(ConvertedNum); 
-        
+AddChangeBtn.addEventListener("click", async () => {
+    let NameInput = ExpenseName.value
+    let CostInput = Number(ExpenseCost.value)
+    if(CostInput >= 0 && NameInput != ""){
+        let NewArr = [NameInput, CostInput]
+        saveToLocalStorageByExpenses(NewArr);
+        calculator()
     } else {
-        console.log('error')
+        alert('ERROR')
     }
 });
+
+ManageBtn.addEventListener("click", async () => {
+    createElements()
+})
 
 
 function newBudget() {
     let aBudget = getBudget();
-    console.log(aBudget); 
-
-    // Iterate through the array of names using map
     aBudget.map(budget => {
     MyBudget = budget; 
     document.getElementById('theBudget').innerText = `${MyBudget}`
@@ -78,3 +78,40 @@ function newBudget() {
 };
 
 newBudget()
+
+function createElements() {
+    let myExpenses = getLocalStorage();
+	ExpensesList.innerHTML= "";
+    myExpenses.map(arrayItems => {
+
+        let p = document.createElement('p');
+        p.className = "m-2";
+        p.textContent = arrayItems;
+
+        let deletebtn = document.createElement('button');
+        deletebtn.type = 'button';
+        deletebtn.className = 'smallBtn cancel'
+        deletebtn.textContent = "Delete";
+
+        deletebtn.addEventListener('click', function () {
+            removeFromLocalStorage(arrayItems);
+            calculator()
+            p.remove();
+        });
+
+        p.appendChild(deletebtn);
+
+        ExpensesList.appendChild(p);
+    });
+};
+
+function calculator() {
+    newBudget()
+    let myCosts = getLocalStorage();
+        for (let i = 0; i<myCosts.length; i++){
+            MyBudget -= (myCosts[i][1]);
+        }
+    document.getElementById('theBudget').innerText = `${MyBudget}`
+};
+
+calculator()
