@@ -1,4 +1,4 @@
-import { getLocalStorage, saveToLocalStorageByExpenses, removeFromLocalStorage, saveBudget, getBudget } from "./localStorage.js";
+import { getLocalStorage, saveToLocalStorageByExpenses, removeFromLocalStorage, saveBudget, getBudget, removeBudget } from "./localStorage.js";
 
 let MyBudget = 0;
 let UpdateBtn = document.getElementById('updateBtn');
@@ -42,7 +42,7 @@ UpdateChangeBtn.addEventListener("click", async () => {
         console.log(MyBudget)
         document.getElementById('theBudget').innerText = `${MyBudget}`
         document.getElementById('currentBudget').innerText = `${MyBudget}`
-        saveBudget(ConvertedNum); 
+            saveBudget(ConvertedNum); 
         
     } else {
         console.log('error')

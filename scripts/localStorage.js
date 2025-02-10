@@ -1,4 +1,4 @@
-function saveBudget(budget) {
+function saveBudget() {
     let budgetArr = getBudget();
 
     if (!budgetArr.includes(budget)) {
@@ -15,6 +15,15 @@ function getBudget(){
         return [];
     }
     return JSON.parse(localBudgetData);
+}
+
+function removeBudget(budget){
+    let budgetArr = getLocalStorage();
+
+
+    let budgetIndex = budgetIndex.indexOf(budget);
+    budgetArr.splice(budgetIndex, 1);
+    localStorage.setItem('Budget', JSON.stringify(budgrtArr));
 }
 
 function saveToLocalStorageByExpenses(expenses) {
@@ -47,4 +56,4 @@ function removeFromLocalStorage(expenses){
     localStorage.setItem('Expenses', JSON.stringify(expensesArr));
 }
 
-export{saveToLocalStorageByExpenses, getLocalStorage, removeFromLocalStorage, saveBudget, getBudget }
+export{saveToLocalStorageByExpenses, getLocalStorage, removeFromLocalStorage, saveBudget, getBudget, removeBudget }
