@@ -1,4 +1,4 @@
-import { getLocalStorage, saveToLocalStorageByExpenses, removeFromLocalStorage, saveBudget, getBudget, removeBudget } from "./localStorage.js";
+import { getLocalStorage, saveToLocalStorageByExpenses, removeFromLocalStorage, saveBudget, getBudget} from "./localStorage.js";
 
 let MyBudget = 0;
 let UpdateBtn = document.getElementById('updateBtn');
@@ -42,10 +42,39 @@ UpdateChangeBtn.addEventListener("click", async () => {
         console.log(MyBudget)
         document.getElementById('theBudget').innerText = `${MyBudget}`
         document.getElementById('currentBudget').innerText = `${MyBudget}`
-            saveBudget(ConvertedNum); 
+        saveBudget(ConvertedNum); 
         
     } else {
         console.log('error')
     }
 });
 
+ManageChangeBtn.addEventListener("click", async () => {
+    let ConvertedNum = Number(BudgetInput.value);
+    if (ConvertedNum >= 0) {
+        MyBudget = ConvertedNum;
+        console.log('Correct')
+        console.log(MyBudget)
+        document.getElementById('theBudget').innerText = `${MyBudget}`
+        document.getElementById('currentBudget').innerText = `${MyBudget}`
+        saveBudget(ConvertedNum); 
+        
+    } else {
+        console.log('error')
+    }
+});
+
+
+function newBudget() {
+    let aBudget = getBudget();
+    console.log(aBudget); 
+
+    // Iterate through the array of names using map
+    aBudget.map(budget => {
+    MyBudget = budget; 
+    document.getElementById('theBudget').innerText = `${MyBudget}`
+    document.getElementById('currentBudget').innerText = `${MyBudget}`
+    });
+};
+
+newBudget()
