@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budgeting App</title>
+    <link rel="stylesheet" href="/style/styles.css">
+    <link rel="stylesheet" href="/style/wickedcss.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/assets/Coin.png"
+  />
+</head>
+<body>
+    <div class="mainBox">
+        <div class="budgetingBox">
+            <img class="coinImg" src="/public/assets/Coin.png" alt="coin">
+            <h3>Your Budget</h3>
+            <h1 id="theBudget">00.00</h1>
+            <div class="buttonGrid">
+                <button id="updateBtn" class="updateBtn"><p>Update</p></button>
+                <button id="manageBtn" class="manageBtn"><p>Manage</p></button>
+                <button id="addBtn" class="addBtn"><p>Add</p></button>
+            </div>
+        </div>
+    </div>
+    <div id="UpdateBox" class="mainBox absolute hidden">
+        <div class="popupBox">
+            <div class="topBar">Update Your Budget</div>
+            <h3>Your Current Budget: </h3>
+            <h4 id="currentBudget">00.00</h4>
+            <div>
+                <input id="budgetInput" type="text" name="" id="">
+            </div>
+            <div class="buttonBox">
+                <button id="updateChangeBtn" class="smallBtn update"><p>Update</p></button>
+                <button id="updateCancelBtn" class="smallBtn cancel"><p>Close</p></button>
+            </div>
+        </div>
+    </div>
+    <div id="ManageBox" class="mainBox absolute hidden">
+        <div class="popupBox">
+            <div class="topBar">Manage Expenses</div>
+            <h3>Your Current Expenses: </h3>
+            <div id="expensesList">
+
+            </div>
+            <div class="buttonBox">
+                <button id="manageCancelBtn" class="smallBtn cancel"><p>Close</p></button>
+            </div>
+        </div>
+    </div>
+    <div id="AddBox" class="mainBox absolute hidden">
+        <div class="popupBox">
+            <div class="topBar"></div>
+            <h3>Add New Expense: </h3>
+            <div>
+                <input id="expenseName" placeholder="Expense" type="text" name="" id="">
+                <input id="expenseCost" placeholder="Cost" type="text" name="" id="">
+            </div>
+            <div class="buttonBox">
+                <button id="addChangeBtn" class="smallBtn add"><p>Add</p></button>
+                <button id="addCancelBtn" class="smallBtn cancel"><p>Close</p></button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/scripts/app.js"></script>
+</body>
+</html>

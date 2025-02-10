@@ -1,0 +1,96 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.coinImg{
+    height: 100px;
+}
+
+.mainBox{
+    display: flex;
+    justify-content: center;
+}
+
+.budgetingBox{
+    border-radius: 20px;
+    background-color: black;
+    text-align: center;
+    padding: 30px;
+    border: solid red;
+    border-width: thick;
+}
+
+.popupBox{
+    border-radius: 20px;
+    background-color: black;
+    text-align: center;
+    width: 300px;
+}
+
+input{
+    padding: 10px;
+}
+
+button{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    border: none;
+}
+
+button:hover{
+    opacity: 60%;
+}
+
+.buttonGrid{
+    display: grid;
+    gap: 10px;
+}
+
+.updateBtn{
+    background-color: green;
+}
+.manageBtn{
+    background-color: red;
+}
+.addBtn{
+    background-color: blue;
+}
+
+.topBar{
+    background-color: red;
+    height: 40px;
+    border-radius: 20px 20px 0 0 ;
+}
+
+.smallBtn{
+    width: 75px;
+}
+
+.update{
+    background-color: green;
+}
+
+.cancel{
+    background-color: red;
+}
+.add{
+    background-color: blue;
+}
+
+.buttonBox{
+    padding: 20px;
+}
+
+.absolute{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hidden{
+    display: none;
+}
