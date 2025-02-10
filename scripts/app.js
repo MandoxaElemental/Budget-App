@@ -16,6 +16,13 @@ let AddBox = document.getElementById('AddBox');
 let ExpenseName = document.getElementById('expenseName');
 let ExpenseCost = document.getElementById('expenseCost');
 let ExpensesList = document.getElementById('expensesList');
+let Audio = document.getElementById('funAudio')
+let Audio2 = document.getElementById('funAudio2')
+let Coin = document.getElementById('coinImg')
+
+Coin.addEventListener("click", async () => {
+    Audio.play()
+})
 
 UpdateBtn.addEventListener("click", async () => {
     UpdateBox.className = "mainBox absolute fadeIn"
@@ -44,7 +51,7 @@ UpdateChangeBtn.addEventListener("click", async () => {
         document.getElementById('currentBudget').innerText = `$${MyBudget}`
         saveBudget(ConvertedNum);
         calculator()
-        
+        Audio.play()
     } else {
         alert('ERROR; Please Enter A Valid Number')
     }
@@ -57,6 +64,7 @@ AddChangeBtn.addEventListener("click", async () => {
         let NewArr = [NameInput, CostInput]
         saveToLocalStorageByExpenses(NewArr);
         calculator()
+        Audio.play()
     } else {
         alert('ERROR: Make Sure Your Entries Are Valid')
     }
@@ -98,6 +106,7 @@ function createElements() {
             removeFromLocalStorage(arrayItems);
             calculator()
             ExpenseItem.remove();
+            Audio2.play();
         });
 
         ExpenseItem.appendChild(p);
@@ -113,7 +122,7 @@ function calculator() {
         for (let i = 0; i<myCosts.length; i++){
             MyBudget -= (myCosts[i][1]);
         }
-    document.getElementById('theBudget').innerText = `${MyBudget}`
+    document.getElementById('theBudget').innerText = `$${MyBudget}`
 };
 
 calculator()

@@ -12,7 +12,8 @@
 <body>
     <div class="mainBox">
         <div class="budgetingBox">
-            <img class="coinImg" src="/public/assets/Coin.png" alt="coin">
+            <h1>Budget App</h1>
+            <img id="coinImg" class="coinImg" src="/public/assets/Coin.png" alt="coin">
             <h3>Your Budget</h3>
             <h1 id="theBudget">00.00</h1>
             <div class="buttonGrid">
@@ -26,7 +27,7 @@
         <div class="popupBox">
             <div class="topBar">Update Your Budget</div>
             <h3>Your Current Budget: </h3>
-            <h4 id="currentBudget">00.00</h4>
+            <h2 id="currentBudget">00.00</h2>
             <div>
                 <input id="budgetInput" placeholder="New Budget Here" type="text" name="">
             </div>
@@ -65,6 +66,8 @@
     <div class="listOfBudgets">
 
     </div>
+    <audio id="funAudio" src="/public/assets/audio/Mario Coin Sound - Sound Effect (HD) [ ezmp3.cc ].mp3"></audio>
+    <audio id="funAudio2" src="/public/assets/audio/super-mario-bros.mp3"></audio>
     <script type="module" src="/scripts/app.js"></script>
 </body>
 </html>
