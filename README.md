@@ -32,4 +32,4 @@
 [Budget App  GitHub Repository Link](https://github.com/MandoxaElemental/Budget-App)
 
 ### Budget App _Azure Link:
-[Budget App  Azure Repository Link](https://greinaresbudgetapp-fygedgfwcuhdftew.westus-01.azurewebsites.net/)
+[Budget App Azure Link](https://greinaresbudgetapp-fygedgfwcuhdftew.westus-01.azurewebsites.net/)
